@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\EJ\include\EJ\Containers\EJ_ContainerBase.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\Containers\EJ_IteratorBase.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\Containers\EJ_StaticArray.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\Containers\EJ_String.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\application\EJGL_Application.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\application\EJGL_Window.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\camera\EJGL_ArcBallCamera.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\camera\EJGL_Camera.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\camera\EJGL_Camera2D.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\EJGL_Include.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\extensions\EJGL_GLMExtension.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\glObject\EJGL_BufferObject.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\glObject\EJGL_Shader.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\glObject\EJGL_ShaderProgram.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\glObject\EJGL_VertexArray.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\matrix\EJGL_Matrix.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\matrix\EJGL_ProjectionMatrix.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\matrix\EJGL_ViewMatrix.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\utils\EJGL_BaseObject.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\utils\EJGL_config.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\utils\EJGL_enum.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\utils\EJGL_ObjectExample.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\GL\utils\EJGL_Utils.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\utils\EJ_BaseObject.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\utils\EJ_Config.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\utils\EJ_Macros.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\utils\EJ_ObjectExample.hpp" />
+    <ClInclude Include="..\EJ\include\EJ\utils\EJ_Point.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\EJ\include\EJ\GL\application\EJGL_Application.inl" />
+    <None Include="..\EJ\include\EJ\GL\application\EJGL_Window.inl" />
+    <None Include="..\EJ\include\EJ\GL\camera\EJGL_Camera.inl" />
+    <None Include="..\EJ\include\EJ\GL\glObject\EJGL_BufferObject.inl" />
+    <None Include="..\EJ\include\EJ\GL\glObject\EJGL_Shader.inl" />
+    <None Include="..\EJ\include\EJ\GL\glObject\EJGL_ShaderProgram.inl" />
+    <None Include="..\EJ\include\EJ\GL\glObject\EJGL_VertexArray.inl" />
+    <None Include="..\EJ\include\EJ\GL\matrix\EJGL_Matrix.inl" />
+    <None Include="..\EJ\include\EJ\GL\matrix\EJGL_ProjectionMatrix.inl" />
+    <None Include="..\EJ\include\EJ\GL\matrix\EJGL_ViewMatrix.inl" />
+    <None Include="..\EJ\include\EJ\GL\utils\EJGL_BaseObject.inl" />
+    <None Include="..\EJ\include\EJ\utils\EJ_BaseObject.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\EJ\src\GL\application\EJGL_Window.cpp" />
+    <ClCompile Include="..\EJ\src\GL\camera\EJGL_ArcBallCamera.cpp" />
+    <ClCompile Include="..\EJ\src\GL\camera\EJGL_Camera.cpp" />
+    <ClCompile Include="..\EJ\src\GL\camera\EJGL_Camera2D.cpp" />
+    <ClCompile Include="..\EJ\src\GL\glObject\EJGL_BufferObject.cpp" />
+    <ClCompile Include="..\EJ\src\GL\glObject\EJGL_Shader.cpp" />
+    <ClCompile Include="..\EJ\src\GL\glObject\EJGL_ShaderProgram.cpp" />
+    <ClCompile Include="..\EJ\src\GL\glObject\EJGL_VertexArray.cpp" />
+    <ClCompile Include="..\EJ\src\GL\matrix\EJGL_Matrix.cpp" />
+    <ClCompile Include="..\EJ\src\GL\matrix\EJGL_ProjectionMatrix.cpp" />
+    <ClCompile Include="..\EJ\src\GL\matrix\EJGL_ViewMatrix.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b0e8fb80-949c-439d-9609-ef06da4102d5}</ProjectGuid>
+    <RootNamespace>EJBuildLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="thisProp.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="thisProp.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="thisProp.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="thisProp.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

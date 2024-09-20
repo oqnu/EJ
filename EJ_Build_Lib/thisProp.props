@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ImportGroup Label="PropertySheets" />
+	
+	<PropertyGroup Label="UserMacros">
+		<OuterDir>$(SolutionDir)\Library</OuterDir>
+		<OuterIncDir>$(OuterDir)\include</OuterIncDir>
+		<OuterLibDir>$(OuterDir)\lib\vs2022</OuterLibDir>
+		<InnerDir>$(SolutionDir)\EJ</InnerDir>
+		<InnerIncDir>$(InnerDir)\include</InnerIncDir>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<ExternalIncludePath>$(OuterIncDir);$(ExternalIncludePath)</ExternalIncludePath>
+		<LibraryPath>$(OuterLibDir)\Debug;$(OuterLibDir)\Common;$(LibraryPath)</LibraryPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<ExternalIncludePath>$(OuterIncDir);$(ExternalIncludePath)</ExternalIncludePath>
+		<LibraryPath>$(OuterLibDir)\Release;$(OuterLibDir)\Common;$(LibraryPath)</LibraryPath>
+	</PropertyGroup>
+
+	
+	<ItemDefinitionGroup>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+		<Link>
+			<AdditionalDependencies>$(OuterLibDir)\Debug\*lib;$(OuterLibDir)\Common\*lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+		</Link>
+		
+		<ClCompile>
+			<LanguageStandard>stdcpp20</LanguageStandard>
+			<AdditionalIncludeDirectories>$(InnerIncDir)</AdditionalIncludeDirectories>
+		</ClCompile>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+		<Link>
+			<AdditionalDependencies>$(OuterLibDir)\Release\*lib;$(OuterLibDir)\Common\*lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+		</Link>
+
+		<ClCompile>
+			<LanguageStandard>stdcpp20</LanguageStandard>
+			<AdditionalIncludeDirectories>$(InnerIncDir)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+		</ClCompile>
+	</ItemDefinitionGroup>
+
+	<ItemGroup>
+
+		<ClCompile Include="$(OuterIncDir)\**\*.cpp" />
+		<ClCompile Include="$(OuterIncDir)\**\*.c" />
+		<BuildMacro Include="OuterDir">
+			<Value>$(OuterDir)</Value>
+		</BuildMacro>
+		<BuildMacro Include="OuterIncDir">
+			<Value>$(OuterIncDir)</Value>
+		</BuildMacro>
+		<BuildMacro Include="OuterLibDir">
+			<Value>$(OuterLibDir)</Value>
+		</BuildMacro>
+		<BuildMacro Include="InnerDir">
+			<Value>$(InnerDir)</Value>
+		</BuildMacro>
+		<BuildMacro Include="InnerIncDir">
+			<Value>$(InnerIncDir)</Value>
+		</BuildMacro>
+	</ItemGroup>
+</Project>
