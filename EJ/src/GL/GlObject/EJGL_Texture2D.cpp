@@ -23,12 +23,12 @@ public:
 		TextureOptions options_, TextureInternalFormat internalFormat_, GLint level_) {
 		glGenTextures(1, &_textureID);
 		bind();
+		glTexImage2D(TextureType::_2D, 0, internalFormat_, image_.width, image_.height, 0, imageDataFormat_, imageDataType_, image_.data.get());
+
 		glTexParameteri(TextureType::_2D, TextureParameter::WRAP_S, options_.wrapsS);
 		glTexParameteri(TextureType::_2D, TextureParameter::WRAP_T, options_.wrapsT);
 		glTexParameteri(TextureType::_2D, TextureParameter::MIN_FILTER, options_.minFilter);
 		glTexParameteri(TextureType::_2D, TextureParameter::MAG_FILTER, options_.magFilter);
-
-		glTexImage2D(TextureType::_2D, 0, internalFormat_, image_.width, image_.height, 0, imageDataFormat_, imageDataType_, image_.data.get());
 	}
 	void generateMipMap() {
 		glGenerateMipmap(TextureType::_2D);
@@ -73,6 +73,9 @@ Texture2D::Texture2D(GLuint id_) :
 	_impl{ _STD make_shared<_Texture2DImpl>(id_) }
 {}
 
+Texture2D::operator GLuint() const {
+	return _impl->_textureID;
+}
 bool Texture2D::isValid() const {
 	return _impl->_textureID != 0;
 }

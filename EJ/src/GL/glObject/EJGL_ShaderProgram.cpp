@@ -67,7 +67,7 @@ public:
 			glGetProgramiv(_programID, GL_INFO_LOG_LENGTH, &length);
 			char* message = (char*)malloc((length + 1) * sizeof(char));
 			glGetProgramInfoLog(_programID, length, &length, message);
-			EJ_ERR_STREAM << "Failed to link program: " << message << std::endl;
+			EJ_ERR_STREAM << "[EJ][Error] Failed to link program: " << message << std::endl;
 			glDeleteProgram(_programID);
 			_programID = 0;
 		}

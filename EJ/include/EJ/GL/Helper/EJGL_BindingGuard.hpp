@@ -12,13 +12,19 @@ public:
 	using ResourceType = _ResourceType;
 
 public:
-	BindingGuard(const ResourceType& resource_) :
+	template <typename... Args>
+	BindingGuard(const ResourceType& resource_, Args&&... args_) :
 		_resource(resource_)
 	{
-		_resource.bind();
+		if (_isBinding) {
+			EJ_ERR_STREAM << "[EJ][Error] BindingGuard: Already binding another resource for class " << typeid(ResourceType).name() << ".\n";
+		}
+		_isBinding = true;
+		_resource.bind(_STD forward<Args>(args_)...);
 	}
 
 	~BindingGuard() {
+		_isBinding = false;
 		_resource.unbind();
 	}
 
@@ -28,7 +34,13 @@ public:
 private:
 	const ResourceType& _resource;
 
+private:
+	static bool _isBinding;
+
 };
+
+template <typename _ResourceType>
+bool BindingGuard<_ResourceType>::_isBinding = false;
 
 EJGL_NAMESPACE_END
 

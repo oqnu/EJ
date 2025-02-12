@@ -159,6 +159,15 @@ namespace PolygonModeN {
 }
 using PolygonMode = PolygonModeN::PolygonModeT;
 
+namespace FrameBufferModeN {
+	enum EJGL_ENUM_STRONG_TYPE_DECLAR FrameBufferModeT : GLenum {
+		NORMAL	  = GL_FRAMEBUFFER,
+		DRAW_ONLY = GL_DRAW_FRAMEBUFFER,
+		READ_ONLY = GL_READ_FRAMEBUFFER,
+	};
+}
+using FrameBufferMode = FrameBufferModeN::FrameBufferModeT;
+
 // Bit
 namespace ClearBitN {
 	enum EJGL_ENUM_STRONG_TYPE_DECLAR ClearBitT : GLbitfield {
@@ -192,6 +201,7 @@ namespace TextureInternalFormatN {
 		RGB             = GL_RGB,
 		RGBA            = GL_RGBA,
 		// Sized
+		R32F			= GL_R32F,
 		// Compressed
 	};
 }
@@ -277,6 +287,48 @@ namespace BlendFactorN {
 	};
 }
 using BlendFactor = BlendFactorN::BlendFactorT;
+
+// Status
+namespace FrameBufferStatusN {
+	enum EJGL_ENUM_STRONG_TYPE_DECLAR FrameBufferStatusT : GLenum {
+		COMPLETE					  = GL_FRAMEBUFFER_COMPLETE,
+		UNDEFINED					  = GL_FRAMEBUFFER_UNDEFINED,
+		INCOMPLETE_ATTACHMENT		  = GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT,
+		INCOMPLETE_MISSING_ATTACHMENT = GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT,
+		INCOMPLETE_DRAW_BUFFER		  = GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER,
+		INCOMPLETE_READ_BUFFER		  = GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER,
+		UNSUPPORTED					  = GL_FRAMEBUFFER_UNSUPPORTED,
+		INCOMPLETE_MULTISAMPLE		  = GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE,
+		INCOMPLETE_LAYER_TARGETS	  = GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS,
+	};
+}
+using FrameBufferStatus = FrameBufferStatusN::FrameBufferStatusT;
+
+// Attachment
+namespace FrameBufferAttachmentN {
+	enum EJGL_ENUM_STRONG_TYPE_DECLAR FrameBufferAttachmentT : GLenum {
+		COLOR0		  = GL_COLOR_ATTACHMENT0,
+		COLOR1		  = GL_COLOR_ATTACHMENT1,
+		COLOR2		  = GL_COLOR_ATTACHMENT2,
+		COLOR3		  = GL_COLOR_ATTACHMENT3,
+		COLOR4		  = GL_COLOR_ATTACHMENT4,
+		COLOR5		  = GL_COLOR_ATTACHMENT5,
+		COLOR6		  = GL_COLOR_ATTACHMENT6,
+		COLOR7		  = GL_COLOR_ATTACHMENT7,
+		COLOR8		  = GL_COLOR_ATTACHMENT8,
+		COLOR9		  = GL_COLOR_ATTACHMENT9,
+		COLOR10		  = GL_COLOR_ATTACHMENT10,
+		COLOR11		  = GL_COLOR_ATTACHMENT11,
+		COLOR12		  = GL_COLOR_ATTACHMENT12,
+		COLOR13		  = GL_COLOR_ATTACHMENT13,
+		COLOR14		  = GL_COLOR_ATTACHMENT14,
+		COLOR15		  = GL_COLOR_ATTACHMENT15,
+		DEPTH		  = GL_DEPTH_ATTACHMENT,
+		STENCIL		  = GL_STENCIL_ATTACHMENT,
+		DEPTH_STENCIL = GL_DEPTH_STENCIL_ATTACHMENT
+	};
+}
+using FrameBufferAttachment = FrameBufferAttachmentN::FrameBufferAttachmentT;
 
 // Functions
 constexpr unsigned int sizeofGLType(DataType type_) {

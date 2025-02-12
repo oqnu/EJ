@@ -34,6 +34,7 @@ public:
 	Texture2D& operator=(const Texture2D& obj_) = default;
 	~Texture2D() = default;
 
+	operator GLuint() const;
 	bool isValid() const;
 
 	GLuint getTextureID() const;

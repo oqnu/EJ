@@ -12,6 +12,10 @@ struct SimpleImage {
 	int height;
 	int channel;
 	_STD shared_ptr<void> data;
+
+	static SimpleImage createEmpty(int width_, int height_, int channel_) {
+		return SimpleImage{ width_, height_, channel_, nullptr };
+	}
 };
 
 EJ_NAMESPACE_END

@@ -23,6 +23,7 @@ public:
 		DataType type;
 		int count;
 		GLboolean normalized;
+		int divisor;
 
 		unsigned int size() const {
 			return count * sizeofGLType(type);
@@ -31,6 +32,8 @@ public:
 		void apply(GLuint index_, const void* offset_ = 0, GLsizei stride_ = 0) const {
 			glVertexAttribPointer(index_, count, type, normalized, stride_, offset_);
 			glEnableVertexAttribArray(index_);
+			if (divisor != 0)
+				glVertexAttribDivisor(index_, divisor);
 		}
 	};
 
@@ -45,9 +48,9 @@ public:
 	EJ_M_CONST_GET_FUNC(GLsizei, getStride, _stride);
 	EJ_M_CONST_GET_FUNC(const _STD vector<Elem>&, getElements, _elements);
 
-	void add(DataType type_, int count_, GLboolean normalized_ = GL_FALSE);
+	void add(DataType type_, int count_, GLboolean normalized_ = GL_FALSE, int divisor_ = 0);
 
-	void apply() const;
+	void apply(int startFrom_ = 0) const;
 
 private:
 	GLsizei _stride = 0;
@@ -100,7 +103,7 @@ public:
 	//	buffer to be added
 	// Param layout_:
 	//	will call layout.apply() for you
-	void addBufferLayout(const ArrayBuffer& buffer_, const VertexBufferLayout& layout_);
+	void addBufferLayout(const ArrayBuffer& buffer_, const VertexBufferLayout& layout_, int startFrom_ = 0);
 
 	void deleteVertexArray();
 
@@ -113,6 +116,8 @@ public:
 
 	void drawArray(DrawOption drawOption_, GLint first_, GLsizei count_);
 	void drawElement(DrawOption drawOption_, GLint first_, GLsizei count_, DataType valType_ = DataType::UNSIGNED_INT);
+	void drawArrayInstanced(DrawOption drawOption_, GLint first_, GLsizei count_, GLsizei numInstances_);
+	void drawElementInstanced(DrawOption drawOption_, GLint first_, GLsizei count_, GLsizei numInstances_, DataType valType_ = DataType::UNSIGNED_INT);
 	void mulDrawArray(DrawOption drawOption_, _STD span<GLint> first_, _STD span<GLsizei> count_);
 	void mulDrawElement(DrawOption drawOption_, _STD span<GLint> first_, _STD span<GLsizei> count_, DataType valType_ = DataType::UNSIGNED_INT);
 

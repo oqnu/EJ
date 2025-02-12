@@ -69,7 +69,7 @@ public:
 	EJ_INLINE GLint getAttribLocation(_STD string_view name_) const;
 
 	template<typename T_, typename... Ts_>
-	void setUniform(_STD string_view name_, T_ v_, Ts_... vs_) const {
+	void setUniform(_STD string_view name_, T_ v_, const Ts_&&... vs_) const {
 		setUniform(getUniformLocation(name_), _STD forward<T_>(v_), _STD forward<Ts_>(vs_)...);
 	}
 

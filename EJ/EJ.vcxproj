@@ -22,11 +22,13 @@
     <ClCompile Include="src\GL\Camera\EJGL_ArcBallCamera.cpp" />
     <ClCompile Include="src\GL\Camera\EJGL_Camera2D.cpp" />
     <ClCompile Include="src\GL\GlObject\EJGL_BufferObject.cpp" />
+    <ClCompile Include="src\GL\GlObject\EJGL_FrameBufferObject.cpp" />
     <ClCompile Include="src\GL\GlObject\EJGL_Shader.cpp" />
     <ClCompile Include="src\GL\GlObject\EJGL_ShaderProgram.cpp" />
     <ClCompile Include="src\GL\GlObject\EJGL_Texture2D.cpp" />
     <ClCompile Include="src\GL\GlObject\EJGL_VertexArray.cpp" />
     <ClCompile Include="src\GL\Helper\EJGL_ImGuiHelper.cpp" />
+    <ClCompile Include="src\GL\Helper\EJGL_PrimitiveGenerator.cpp" />
     <ClCompile Include="src\GL\Matrix\EJGL_ProjectionMatrix.cpp" />
     <ClCompile Include="src\GL\Matrix\EJGL_ViewMatrix.cpp" />
     <ClCompile Include="src\Helper\EJ_ImageLoader.cpp" />
@@ -40,7 +42,9 @@
     <ClInclude Include="include\EJ\GL\Camera\EJGL_Camera.hpp" />
     <ClInclude Include="include\EJ\GL\Camera\EJGL_Camera2D.hpp" />
     <ClInclude Include="include\EJ\GL\EJGL_Include.hpp" />
+    <ClInclude Include="include\EJ\GL\GlObject\EJGL_FrameBufferObject.hpp" />
     <ClInclude Include="include\EJ\GL\GlObject\EJGL_Texture2D.hpp" />
+    <ClInclude Include="include\EJ\GL\Helper\EJGL_PrimitiveGenerator.hpp" />
     <ClInclude Include="include\EJ\GL\Helper\EJGL_ImGuiHelper.hpp" />
     <ClInclude Include="include\EJ\Helper\EJ_EasyStructs.hpp" />
     <ClInclude Include="include\EJ\GL\Helper\EJGL_BindingGuard.hpp" />

@@ -7,19 +7,19 @@ EJGL_NAMESPACE_BEGIN
 
 #pragma region VertexBufferLayout
 
-void VertexBufferLayout::add(DataType type_, int count_, GLboolean normalized_) {
+void VertexBufferLayout::add(DataType type_, int count_, GLboolean normalized_, int divisor_) {
 	EJ_ASSERT(count_ != 0);
-	_elements.push_back({ type_, count_, normalized_ });
+	_elements.push_back({ type_, count_, normalized_, divisor_ });
 	_stride += _elements.back().size();
 }
 
-void VertexBufferLayout::apply() const {
+void VertexBufferLayout::apply(int startFrom_) const {
 	const auto& stride = getStride();
 	const auto& elements = getElements();
 	unsigned long long offset = 0;
 	for (int i = 0; i < elements.size(); ++i) {
 		const auto& element = elements[i];
-		element.apply(i, (void*)(offset), stride);
+		element.apply(i + startFrom_, (void*)(offset), stride);
 		offset += element.size();
 	}
 }
@@ -64,9 +64,9 @@ public:
 		buffer_.bind();
 		_bindingBuffers.push_back(buffer_);
 	}
-	void addBufferLayout(const ArrayBuffer& buffer_, const VertexBufferLayout& layout_) {
+	void addBufferLayout(const ArrayBuffer& buffer_, const VertexBufferLayout& layout_, int startFrom_) {
 		buffer_.bind();
-		layout_.apply();
+		layout_.apply(startFrom_);
 		buffer_.unbind();
 		_bindingBuffers.push_back(buffer_);
 	}
@@ -149,9 +149,9 @@ void VertexArray::addBuffer(const BufferObject& buffer_) {
 //	buffer to be added
 // Param layout_:
 //	will call layout.apply() for you
-void VertexArray::addBufferLayout(const ArrayBuffer& buffer_, const VertexBufferLayout& layout_) {
+void VertexArray::addBufferLayout(const ArrayBuffer& buffer_, const VertexBufferLayout& layout_, int startFrom_) {
 	EJ_ASSERT(isValid() && "Have you create()?");
-	return _impl->addBufferLayout(buffer_, layout_);
+	return _impl->addBufferLayout(buffer_, layout_, startFrom_);
 }
 
 void VertexArray::deleteVertexArray() {
@@ -168,6 +168,12 @@ void VertexArray::drawArray(DrawOption drawOption_, GLint first_, GLsizei count_
 }
 void VertexArray::drawElement(DrawOption drawOption_, GLint first_, GLsizei count_, DataType valType_) {
 	glDrawElements(drawOption_, count_, valType_, (void*)(sizeofGLType(valType_) * first_));
+}
+void VertexArray::drawArrayInstanced(DrawOption drawOption_, GLint first_, GLsizei count_, GLsizei numInstances_) {
+	glDrawArraysInstanced(drawOption_, first_, count_, numInstances_);
+}
+void VertexArray::drawElementInstanced(DrawOption drawOption_, GLint first_, GLsizei count_, GLsizei numInstances_, DataType valType_) {
+	glDrawElementsInstanced(drawOption_, count_, valType_, (void*)(sizeofGLType(valType_) * first_), numInstances_);
 }
 void VertexArray::mulDrawArray(DrawOption drawOption_, _STD span<GLint> first_, _STD span<GLsizei> count_) {
 	EJ_ASSERT(first_.size() == count_.size() && "offsets's and counts's size must equal to drawcount");

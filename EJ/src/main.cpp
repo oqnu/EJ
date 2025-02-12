@@ -126,7 +126,7 @@ int main() {
 	int _frameCnt = 0;
 
 	glEnable(EnableOption::DEPTH_TEST);
-	glClearColor(0, 0, 0, 1);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	while (!window.shouldClose()) {
 		glfw::pollEvents();
 

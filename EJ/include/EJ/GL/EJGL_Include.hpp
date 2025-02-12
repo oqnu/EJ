@@ -14,6 +14,7 @@
 #include "Camera/EJGL_ArcBallCamera.hpp"
 #include "GlObject/EJGL_BufferObject.hpp"
 #include "GlObject/EJGL_VertexArray.hpp"
+#include "GlObject/EJGL_FrameBufferObject.hpp"
 #include "Helper/EJGL_BindingGuard.hpp"
 //#include "GlObject/EJGL_Shader.hpp"
 #include "GlObject/EJGL_ShaderProgram.hpp"
